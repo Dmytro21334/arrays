@@ -1,0 +1,41 @@
+import java.util.Random;
+
+public class third {
+    public static void main(String[] args) {
+
+        int[][] arrays = new int[3][5];
+        Random random = new Random();
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = 0; j < arrays[i].length; j++) {
+                arrays[i][j] = random.nextInt(6); // Випадкові числа від 0 до 5
+            }
+        }
+
+        for (int i = 0; i < arrays.length; i++) {
+            System.out.println("Масив " + (i + 1) + ":");
+            for (int j = 0; j < arrays[i].length; j++) {
+                System.out.print(arrays[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        double[] averages = new double[3];
+        for (int i = 0; i < arrays.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < arrays[i].length; j++) {
+                sum += arrays[i][j];
+            }
+            averages[i] = (double) sum / arrays[i].length;
+        }
+
+        if (averages[0] > averages[1] && averages[0] > averages[2]) {
+            System.out.println("Середнє значення першого масиву більше.");
+        } else if (averages[1] > averages[0] && averages[1] > averages[2]) {
+            System.out.println("Середнє значення другого масиву більше.");
+        } else if (averages[2] > averages[0] && averages[2] > averages[1]) {
+            System.out.println("Середнє значення третього масиву більше.");
+        } else {
+            System.out.println("Середні значення масивів рівні.");
+        }
+    }
+}
